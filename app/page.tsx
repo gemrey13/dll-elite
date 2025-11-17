@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { Users, TrendingUp, Award, ArrowRight, Calendar } from "lucide-react";
 import {Badge} from "@/components/ui/badge";
 import {Button} from "@/components/ui/button";
 import {Card, CardContent} from "@/components/ui/card";
 import Image from 'next/image'
+import FloatingLines from "@/components/FloatingLines";
 
 export default function Home() {
     const upcomingSeminars = [
@@ -93,35 +96,61 @@ export default function Home() {
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
-            <section className="relative overflow-hidden border-b border-neutral-800">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-600/10" />
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 relative">
-                    <div className="max-w-3xl">
-                        <Badge className="mb-6 bg-blue-500/10 text-blue-400 border-blue-500/20">
-                            Welcome to DLL ELITE
-                        </Badge>
-                        <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
-                            Elevating Leaders Innovatively
-                        </h1>
-                        <p className="text-xl sm:text-2xl text-neutral-400 mb-8">
-                            Through Training and Excellence
-                        </p>
-                        <div className="flex flex-wrap gap-4">
-                            <Link href="/">
-                                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                                    Explore Seminars
-                                    <ArrowRight className="ml-2" size={20} />
-                                </Button>
-                            </Link>
-                            <Link href="/">
-                                <Button size="lg" variant="outline" className="border-neutral-700 hover:bg-neutral-900">
-                                    Learn More
-                                </Button>
-                            </Link>
+            <section className="relative border-b border-neutral-800 overflow-hidden">
+
+                {/* FloatingLines background */}
+                <div className="absolute inset-0">
+                    <FloatingLines
+                        enabledWaves={['top', 'middle', 'bottom']}
+                        // Array - specify line count per wave; Number - same count for all waves
+                        lineCount={[8, 5, 10]}
+                        // Array - specify line distance per wave; Number - same distance for all waves
+                        lineDistance={[8, 6, 4]}
+                        bendRadius={5.0}
+                        bendStrength={-0.5}
+                        interactive={true}
+                        parallax={true}
+                    />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 pointer-events-none">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
+                        <div className="max-w-full text-center">
+                            <Badge className="mb-6 bg-blue-500/10 text-blue-400 border-blue-500/20 pointer-events-auto">
+                                Welcome to DLL ELITE
+                            </Badge>
+
+                            <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 bg-gradient-to-r from-white to-neutral-50 bg-clip-text text-transparent pointer-events-auto">
+                                Elevating Leaders <br /> Innovatively
+                            </h1>
+
+                            <p className="text-xl sm:text-2xl text-neutral-200 mb-8 pointer-events-auto">
+                                Through Training and Excellence
+                            </p>
+
+                            <div className="flex flex-wrap gap-4 max-w-full justify-center">
+                                <Link href="/">
+                                    <Button size="lg" className="bg-blue-600 hover:bg-blue-700 pointer-events-auto text-white">
+                                        Explore Seminars
+                                        <ArrowRight className="ml-2" size={20} />
+                                    </Button>
+                                </Link>
+
+                                <Link href="/">
+                                    <Button size="lg" variant="outline" className="border-neutral-700 hover:bg-neutral-900 pointer-events-auto text-neutral-400">
+                                        Learn More
+                                    </Button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </section>
+
+
+
 
             {/* Stats Section */}
             <section className="border-b border-neutral-800">
