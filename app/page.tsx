@@ -10,7 +10,7 @@ export default function Home() {
         {
             id: 1,
             title: 'Leadership Essentials Workshop',
-            description: 'A hands-on workshop to enhance leadership skills and team management.',
+            description: 'A hands-on workshop to enhance leadership skills and team managements.',
             date: '2025-12-05',
             time: '10:00 AM - 2:00 PM',
             location: 'New York, NY',
